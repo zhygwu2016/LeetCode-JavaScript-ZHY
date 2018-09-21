@@ -52,7 +52,6 @@ with the steps below:
 */
 var twoSumHash = function(nums,target){
   var hash = {};
-
   for (var i = 0; i < nums.length; i++){
     var num = nums[i];
 
@@ -69,3 +68,6 @@ var twoSumHash = function(nums,target){
 
 };
 console.log(twoSumHash([2, 7, 11, 15],9));
+
+// One video about hash table:
+// https://www.youtube.com/watch?v=F95z5Wxd9ks
