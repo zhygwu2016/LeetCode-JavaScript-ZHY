@@ -79,6 +79,6 @@ var bsearch = function (array, key, start) {
     }
   }
 
-  // if the current middle item is what we're looking for return it's index, else return -1
+  // if the current middle item is what we're looking for return it's index, else return -1 
   return (left == right && array[left] == key) ? left : -1;
 };
