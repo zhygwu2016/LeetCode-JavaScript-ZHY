@@ -19,7 +19,32 @@ in the reversed string.
 /**
  * @param {string} str
  * @returns {string}
- */
-var reverseWords = function(str) {
+*/
 
+//1. O(n) runtime, O(n) space
+var reverseWords = function(str) {
+  var revStr = '';
+  var stop = str.length;
+  for(var i = str.length-1; i>=0; i--){
+    if(str.charAt(i)==' '){
+      stop = i;
+    }else if( i==0 || str.charAt(i-1)==' '){
+      if(revStr.length!=0){
+        revStr += ' ';
+      }
+      revStr += str.substring(i,stop);
+    }
+  }
+  return revStr;
+};
+
+console.log(reverseWords('the sky is blue'));
+
+//2.
+var reverseWords = function(str) {
+  return str.trim().split(/\s+/).reverse().join(' ');
+  // Remove whitespace from both sides of a string
+  // Split the string by whitespace (one or more whitespace: /\s+/)
+  // Reverse the array
+  // Join the array of words in reverse
 };

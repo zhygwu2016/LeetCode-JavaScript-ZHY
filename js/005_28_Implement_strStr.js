@@ -47,5 +47,5 @@ var strStr = function(haystack, needle) {
 };
 // stringObject.substring(start,stop)  (不包括stop位置)
 // start	必需。一个非负的整数，规定要提取的子串的第一个字符在stringObject中的位置。
-//stop	可选。一个非负的整数，比要提取的子串的最后一个字符在 stringObject 中的位置多1。
+// stop	可选。一个非负的整数，比要提取的子串的最后一个字符在 stringObject 中的位置多1。
 // 如果省略该参数，那么返回的子串会一直到字符串的结尾。
