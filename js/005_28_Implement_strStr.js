@@ -22,6 +22,19 @@ This is consistent to C's strstr() and Java's indexOf().
 */
 
 // 1.
+/*
+Solution:
+O(nm) runtime, O(1) space – Brute force:
+There are known efficient algorithms such as Rabin-Karp algorithm, KMP algorithm,
+or the Boyer-Moore algorithm. Since these algorithms are usually studied in an
+advanced algorithms class, it is sufficient to solve it using the most direct
+method in an interview –The brute force method.
+The brute force method is straightforward to implement. We scan the needle with
+the haystack from its first position and start matching all subsequent letters
+one by one. If one of the letters does not match, we start over again with the
+next position in the haystack. Assume that n = length of haystack and
+m = length of needle, then the runtime complexity is O(nm).
+*/
 var strStr = function(haystack, needle) {
   for (var i = 0; ; i++) {
     for (var j = 0; ; j++) {

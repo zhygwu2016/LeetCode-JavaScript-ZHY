@@ -21,6 +21,12 @@ return [0, 1].
 */
 
 // Solution-1 Brute Force O(n^2)
+/*
+O(n^2) runtime, O(1) space – Brute force:
+The brute force approach is simple. Loop through each element x and find if
+there is another value that equals to target – x. As finding another value
+requires looping through the rest of array, its runtime complexity is O(n^2).
+*/
 var twoSum = function(nums,target){
   var result = [];
   for(var i = 0; i<nums.length; i++) {

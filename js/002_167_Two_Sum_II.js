@@ -43,6 +43,9 @@ var twoSum = function(numbers, target) {
 
 // 2. pointer  O(n) runtime, O(1) space
 // https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/discuss/51287/JavaScript-simple-solution
+// O(n log n) runtime, O(1) space – Binary search:
+/*For each element x, we could look up if target – x exists in O(log n) time by applying
+binary search over the sorted array. Total runtime complexity is O(n log n).*/
 var twoSumPointer = function(numbers, target){
   var i=0, j=numbers.length-1;
   while(numbers[i]+numbers[j]!==target){
@@ -79,6 +82,6 @@ var bsearch = function (array, key, start) {
     }
   }
 
-  // if the current middle item is what we're looking for return it's index, else return -1 
+  // if the current middle item is what we're looking for return it's index, else return -1
   return (left == right && array[left] == key) ? left : -1;
 };
