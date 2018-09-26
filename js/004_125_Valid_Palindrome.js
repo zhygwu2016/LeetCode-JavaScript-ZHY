@@ -36,7 +36,8 @@ var isPalindrome = function(s) {
   return s === r;
 };
 
-// 2. reverse. turn string into array, reverse, don't turn back. much better than the first one
+// 2. reverse. turn string into array, reverse, don't turn back.
+//Much better than the first one
 // https://stackoverflow.com/questions/33436807/why-we-are-using-in-this-expression-str-replace-w-g-tolowercase-w/38663031
 var isPalindrome = function(s) {
   var clearString = s.toLowerCase().replace(/[^0-9a-z]/gi, '').split('');
