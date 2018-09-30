@@ -55,3 +55,46 @@ var expandAroundCenter = function(s,left,right){
 // O(n) runtime, O(n) space – Manacher’s algorithm:
 // https://articles.leetcode.com/longest-palindromic-substring-part-ii/
 // https://www.felix021.com/blog/read.php?2040
+var longestPalindromeTest = function(s) {
+  t = '^#'+ s.split('').join('#') + '#$';
+  // e.g. cabae => ^#c#a#b#a#e#$
+
+  var n = t.length;
+  var p = [];
+  for(i=0; i<n; i++){
+    p.push(0);
+  }
+
+  var c=0, r=0;
+  for (var i = 1; i < n-1; i++) {
+    var i_mirror = 2*c-i; // equals to i' = C - (i-C)
+
+    p[i] = (r > i) ? Math.min(r-i, p[i_mirror]) : 0;
+
+    // Attempt to expand palindrome centered at i
+    while (t[i + 1 + p[i]] == t[i - 1 - p[i]]){
+      p[i]++;
+    }
+
+    // If palindrome centered at i expand past R,
+    // adjust center based on expanded palindrome.
+    if (i + p[i] > r) {
+      c = i;
+      r = i + p[i];
+    }
+  }
+
+  // Find the maximum element in P.
+  var maxLen = 0;
+  var centerIndex = 0;
+  for (var j = 1; j < n-1; j++) {
+    if (p[j] > maxLen) {
+      maxLen = p[j];
+      centerIndex = j;
+    }
+  }
+
+  return s.substr((centerIndex - 1 - maxLen)/2, maxLen);
+};
+
+//longestPalindromeTest('babad');
