@@ -160,13 +160,14 @@ Merge Two Sorted Lists].
 */
 var mergeKLists = function(lists) {
   if(lists === null || lists.length == 0) return lists;
+  var end = lists.length - 1;
   // while(lists.length>1){
   //   lists.push(mergeTwoLists(lists.shift(), lists.pop()));
   // }
   while (end > 0) {
     var begin = 0;
     while (begin < end) {
-      lists.splice(begin, 1, merge2Lists(lists.get(begin),lists.get(end)));
+      lists.splice(begin, 1, mergeTwoLists(lists[begin],lists[end]));
       begin++;
       end--;
     }
