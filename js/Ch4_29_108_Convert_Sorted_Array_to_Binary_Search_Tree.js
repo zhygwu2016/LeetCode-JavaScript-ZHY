@@ -63,7 +63,7 @@ function helper(arr, start, end){
   return node;
 }
 
-// closure
+// another way
 var sortedArrayToBST = function(nums) {
   if (!nums) return null;
 
@@ -75,7 +75,7 @@ var sortedArrayToBST = function(nums) {
 
     node.left = helper(start, mid-1);
     node.right = helper(mid+1, end);
-    
+
     return node;
   };
 
