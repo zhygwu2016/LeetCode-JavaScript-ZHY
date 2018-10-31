@@ -154,3 +154,15 @@ var uniquePaths = function(m, n) {
   }
   return currentRow[n - 1];
 };
+
+/*
+Combinatorial Solution:
+It turns out this problem could be solved using combinatorics, which no doubt would be
+the most efficient solution. In order to see it as a combinatorial problem, there are some
+necessary observations. Look at the 7×3 sample grid in the picture above. Notice that no
+matter how you traverse the grids, you always traverse a total of 8 steps. To be more
+exact, you always have to choose 6 steps to the right (R) and 2 steps to the bottom (B).
+Therefore, the problem can be transformed to a question of how many ways can you
+choose 6R‘s and 2B‘s in these 8 steps. The answer is C(8,2) or C(8,6).
+Therefore, the general solution for an m × n grid is C(m+n−2,m−1 ).
+*/
