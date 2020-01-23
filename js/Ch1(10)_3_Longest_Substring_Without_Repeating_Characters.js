@@ -86,19 +86,20 @@ when we found a repeated character.
 不用boolean数列（因为只能储存true或者false），
 而是用字符出现的index位置来储存。-1表示没有，正数表示index位置。这样储存的信息更多。
 */
-var lengthOfLongestSubstring = function(s) {
-  var charMap = [], length = 256;
-  for(i=0; i<length; i++){
-    charMap.push(-1);
-  }
 
-  var i = 0, maxLength = 0;
-  for(j=0;j<s.length;j++){
-    if(charMap[s.charAt(j)]>=i){
-      i = charMap[s.charAt(j)]+1;
+var lengthOfLongestSubstring = function(s) {
+    let charMap = [], length = 256;
+    for (let i = 0; i<length; i++){
+        charMap.push(-1);
     }
-    charMap[s.charAt(j)] = j;
-    maxLength = Math.max(j-i+1, maxLength);
-  }
-  return maxLength;
+    
+    let i = 0, maxLength = 0;
+    for(let j = 0; j<s.length; j++){
+        if(charMap[s.charAt(j)]>=i){
+            i = charMap[s.charAt(j)] + 1;
+        }
+        charMap[s.charAt(j)] = j;
+        maxLength = Math.max(j-i+1, maxLength);
+    }
+    return maxLength;
 };

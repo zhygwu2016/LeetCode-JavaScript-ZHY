@@ -44,9 +44,7 @@ var twoSum = function(numbers, target) {
 
 // 2. pointer  O(n) runtime, O(1) space
 // https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/discuss/51287/JavaScript-simple-solution
-// O(n log n) runtime, O(1) space – Binary search:
-/*For each element x, we could look up if target – x exists in O(log n) time by applying
-binary search over the sorted array. Total runtime complexity is O(n log n).*/
+
 var twoSumPointer = function(numbers, target){
   var i=0, j=numbers.length-1;
   while(numbers[i]+numbers[j]!==target){
@@ -59,9 +57,19 @@ var twoSumPointer = function(numbers, target){
   }
   return [i+1,j+1];
 };
+// const twoSum = (numbers, target) => {
+//     let i = 0, j = numbers.length-1;
+//     while(numbers[i] + numbers[j] !== target){
+//         numbers[i]+numbers[j] < target ? i++ : j--;
+//     }
+//     return [i+1, j+1];
+// }
 //console.log(twoSumPointer([2, 7, 11, 15],9));
 
 // 3. binary search
+// O(n log n) runtime, O(1) space – Binary search:
+/*For each element x, we could look up if target – x exists in O(log n) time by applying
+binary search over the sorted array. Total runtime complexity is O(n log n).*/
 var twoSumBinary = function(numbers, target) {
   // Assume input is already sorted.
   for (var i = 0; i < numbers.length; i++) {
@@ -86,3 +94,26 @@ var bsearch = function (array, key, start) {
   // if the current middle item is what we're looking for return it's index, else return -1
   return (left == right && array[left] == key) ? left : -1;
 };
+
+//2019.6.27
+const twoSum = (numbers, target) => {
+  for (let i = 0; i< numbers.length; i++){
+      var j = bsearch(numbers, target-numbers[i], i+1);
+      if (j != -1) {
+          return [i + 1, j + 1];
+      }
+  }
+}
+
+const bsearch = (array, key, start) => {
+  let left = start, right = array.length - 1;
+  while (left < right) {
+      let middle = Math.floor((left+right)/2);
+      if (array[middle] < key){
+          left = middle + 1;
+      }else{
+          right = middle;
+      }
+  }
+  return (left == right && array[left] == key) ? left : -1;
+}

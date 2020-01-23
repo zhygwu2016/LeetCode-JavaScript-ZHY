@@ -23,6 +23,53 @@ find(6) -> false
 // about "Map"
 // https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/0014345007434430758e3ac6e1b44b1865178e7aff9082e000
 
+
+/**
+ * Initialize your data structure here.
+ */
+class TwoSum {
+  constructor(){
+      this.map = new Map();
+  }
+  
+  /**
+   * Add the number to an internal data structure..
+   * @param {number} number
+   * @return {void}
+   */
+  add(number){
+      this.map[number] = this.map[number] || 0;
+      this.map[number]++;
+  }
+  
+  /**
+   * Find if there exists any pair of numbers which sum is equal to the value.
+   * @param {number} value
+   * @return {boolean}
+   */
+  find(value){
+      for (let key in this.map){
+          let left = value - key;
+          
+          if(left == key){
+              if (this.map[left] >=2){
+                  return true;
+              } 
+          }else if(this.map[left] >=1){
+              return true;
+          }
+      }
+      return false;
+  }
+}
+/**
+* Your TwoSum object will be instantiated and called as such:
+* var obj = Object.create(TwoSum).createNew()
+* obj.add(number)
+* var param_2 = obj.find(value)
+*/
+
+
 /**
  * Initialize your data structure here.
  */
